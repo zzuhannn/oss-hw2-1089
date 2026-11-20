@@ -1,0 +1,17 @@
+name: Hello HW2
+run-name: ${{ github.actor }} - HW2 (${{ github.event_name }})
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+jobs:
+  info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 학생 정보
+        run: echo "NAME=${{ vars.NAME }} / SID4=${{ vars.SID4 }}"
+      - name: 실행 정보
+        run: echo "event=${{ github.event_name }} / commit=$GITHUB_SHA"
+      - uses: actions/checkout@v7
+      - name: 파일 목록
+        run: ls -l
